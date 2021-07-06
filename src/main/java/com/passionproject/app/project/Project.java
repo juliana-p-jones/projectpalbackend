@@ -2,6 +2,7 @@ package com.passionproject.app.project;
 
 import com.passionproject.app.commission.Commission;
 import com.passionproject.app.enums.Completion;
+import com.passionproject.app.image.Image;
 
 import javax.persistence.*;
 
@@ -35,6 +36,8 @@ public class Project {
     private boolean sold; // this is for personal projects that can be sold in the future if not commissioned
     @OneToOne(cascade = CascadeType.ALL)
     private Commission commission;
+    @Column
+    private String image;
 
     public Long getId() {
         return id;
@@ -138,5 +141,13 @@ public class Project {
 
     public void setCommission(Commission commission) {
         this.commission = commission;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
